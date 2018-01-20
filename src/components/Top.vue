@@ -13,9 +13,9 @@
 				</div>
 				<div class="recent-file-body">
 				</div>
-				<div class="recent-file-footer">
+				<!--<div class="recent-file-footer">
 					View
-				</div>
+				</div>-->
 			</div>
 		</div>
 		<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
@@ -96,9 +96,11 @@
 		border-radius: 3px
 		padding: 0
 		margin-left: 30px
+		cursor: pointer
 	.recent-file-body
 		background: #5FA3B8
 		height: 160px
+		border-radius: 0px 0px 3px 3px
 	.recent-file-type
 		border-radius: 3px 0px 0px 0px
 		background: #1CBBB0

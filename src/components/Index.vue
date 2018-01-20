@@ -1,10 +1,11 @@
 <template>
-	<Top/>
+	<div>
+		<Top/>
+		<Materials/>
+	</div>
 </template>
 
 <script>
-	import Top from '@/components/Top'
-
 	export default{
 		name: "index",
 		data () {
