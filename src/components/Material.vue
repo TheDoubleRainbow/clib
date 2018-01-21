@@ -8,7 +8,7 @@
 			<ImageMaterial v-if="data.type == 'Image'" :content="data.content"/>
 			<TextMaterial v-if="data.type == 'Text'" :content="data.content"/>
 			<VideoMaterial v-if="data.type == 'Video'" :content="data.content"/>
-			<AudioMaterial v-if="data.type == 'Audio'" :content="data.content"/>
+			<AudioMaterial v-if="data.type == 'Music'" :content="data.content"/>
 		</div>
 		<div :style="style" class="file-panel">
 			<span class="panel-likes">Likes: {{data.social.likes}}</span>
@@ -32,7 +32,7 @@
 		},
 		methods: {
 			typeColor: function (){
-				return this.data.type == "Image" ? "background: #1CBBB0" : this.data.type == "Text" ? "background: #424242" : this.data.type == "Video" ? "background: #F25E50" : "background: #F259BF"
+				return this.data.type == "Image" ? "background: #1CBBB0" : this.data.type == "Text" ? "background: #424242" : this.data.type == "Video" ? "background: #F25E50" : "background: #FD883D"
 			}
 		}
 	}
