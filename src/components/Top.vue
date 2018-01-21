@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div class="recent-files columns is-centered">
-			<div v-for="i in a" class="recent-file column is-2">
+			<div v-for="me in 'epam'" class="recent-file column is-2">
 				<div class="recent-file-header">
 					<span class="recent-file-type">Image</span>
 					<span class="recent-file-name">An Interesting Picture</span>
