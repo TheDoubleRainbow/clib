@@ -4,6 +4,7 @@
 
 <script>
 	export default {
+		name: "VideoMaterial",
 		props: ["content"],
 		data () {
 			return {

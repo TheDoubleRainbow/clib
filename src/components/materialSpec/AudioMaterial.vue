@@ -14,6 +14,7 @@
 
 <script>
 	export default {
+		name: "AudioMaterial",
 		props: ["content"],
 		data () {
 			return {
@@ -51,7 +52,13 @@
 			timelineChange (e) {
 				this.$refs.audio.currentTime = e.offsetX/280*this.$refs.audio.duration;
 				this.$refs.playhead.style.marginLeft = e.offsetX+"px"
+			},
+			timelineUpdate () {
+				this.$refs.playhead.style.marginLeft = this.$refs.audio.currentTime/this.$refs.audio.duration*280+"px";
 			}
+		},
+		mounted : function () {
+			setInterval(this.timelineUpdate, 1000)
 		}
 	}
 </script>
@@ -100,4 +107,5 @@
 		width: 14px
 		background: #FD883D
 		border-radius: 100%
+
 </style>

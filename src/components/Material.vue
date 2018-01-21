@@ -22,9 +22,19 @@
 </template>
 
 <script>
+	import Audio from './materialSpec/AudioMaterial';
+	import Text from './materialSpec/TextMaterial';
+	import Video from './materialSpec/VideoMaterial';
+	import Image from './materialSpec/ImageMaterial';
 	export default{
 		name: "material",
 		props: ['data'],
+		components: {
+			"AudioMaterial": Audio,
+			"TextMaterial": Text,
+			"VideoMaterial": Video,
+			"ImageMaterial": Image
+		},
 		data () {
 			return {
 				style: this.data.type == "Video" ? "top: 200px" : ""

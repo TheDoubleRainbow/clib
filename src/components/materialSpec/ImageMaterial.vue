@@ -7,6 +7,7 @@
 <script>
 	export default {
 		props: ["content"],
+		name: "ImageMaterial",
 		data () {
 			return {
 				
