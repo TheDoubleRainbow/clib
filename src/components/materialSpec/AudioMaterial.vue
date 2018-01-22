@@ -5,7 +5,7 @@
 			
 		</div>
 		<div class="play" @click="play()"><img class="playButton" :src="playImg" /></div>
-		<div @click="timelineChange($event)" class="timeline"><div ref="playhead" class="playhead"></div></div>
+		<div @click="timelineChange($event)" ref="timeline" class="timeline"><div ref="playhead" class="playhead"></div></div>
 		<audio volume="0.5" ref="audio" class="player">
 			<source :src="content" type="audio/mpeg">
 		</audio>
@@ -50,11 +50,11 @@
 				}
 			},
 			timelineChange (e) {
-				this.$refs.audio.currentTime = e.offsetX/280*this.$refs.audio.duration;
+				this.$refs.audio.currentTime = e.offsetX/380*this.$refs.audio.duration;
 				this.$refs.playhead.style.marginLeft = e.offsetX+"px"
 			},
 			timelineUpdate () {
-				this.$refs.playhead.style.marginLeft = this.$refs.audio.currentTime/this.$refs.audio.duration*280+"px";
+				this.$refs.playhead.style.marginLeft = this.$refs.audio.currentTime/this.$refs.audio.duration*380+"px";
 			}
 		},
 		mounted : function () {
@@ -66,7 +66,7 @@
 <style lang="sass" scoped>
 	.wrap
 		background: #FD883D
-		height: 200px
+		height: 250px
 	.playButton
 		height: 90px
 		width: 90px
@@ -78,8 +78,8 @@
 	.play
 		display: inline-block
 		position: relative
-		top: 45px
-		left: 60px
+		top: 75px
+		left: 110px
 	.vol-img
 		height: 25px
 		width: 25px
@@ -92,16 +92,16 @@
 		margin-top: 6px
 	.timeline
 		background: white
-		width: 280px
+		width: 380px
 		margin-left: 10px
 		height: 16px
 		border-radius: 16px
 		padding: 1px 0px 0px 2px
 		position: relative
-		top: 70px
+		top: 120px
 		transition-duration: 0.3s
 	.wrap:hover .timeline
-		top: 50px
+		top: 90px
 	.playhead
 		height: 14px
 		width: 14px

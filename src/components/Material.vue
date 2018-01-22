@@ -1,7 +1,10 @@
 <template>
 	<div class="file column is-narrow">
 		<div class="file-header">
-			<span :style="typeColor()" class="file-type">{{data.type}}</span>
+			<span v-if="data.type == 'Image'" :style="typeColor()" class="file-type"><i class="far fa-images"></i></span>
+			<span v-if="data.type == 'Music'" :style="typeColor()" class="file-type"><i class="fas fa-music"></i></span>
+			<span v-if="data.type == 'Video'" :style="typeColor()" class="file-type"><i class="fas fa-video"></i></span>
+			<span v-if="data.type == 'Text'" :style="typeColor()" class="file-type"><i class="fas fa-align-left"></i></span>
 			<span class="file-text">{{data.name}}</span>
 		</div>
 		<div class="file-body">
@@ -11,9 +14,9 @@
 			<AudioMaterial v-if="data.type == 'Music'" :content="data.content"/>
 		</div>
 		<div :style="style" class="file-panel">
-			<span class="panel-likes">Likes: {{data.social.likes}}</span>
-			<span class="panel-views">Views: {{data.social.views}}</span>
-			<span class="panel-comments">Comments: {{data.social.comments}}</span>
+			<span class="panel-likes"><i class="far fa-thumbs-up"></i> {{data.social.likes}}</span>
+			<span class="panel-views"><i class="fas fa-eye"></i> {{data.social.views}}</span>
+			<span class="panel-comments"><i class="fas fa-comments"></i> {{data.social.comments}}</span>
 		</div>
 		<div class="file-footer">
 			View
@@ -37,7 +40,7 @@
 		},
 		data () {
 			return {
-				style: this.data.type == "Video" ? "top: 200px" : ""
+				style: this.data.type == "Video" ? "top: 255px" : ""
 			}
 		},
 		methods: {
@@ -54,25 +57,28 @@
 		border-radius: 3px
 		padding: 0
 		margin: 20px 20px 20px 20px
-		width: 300px
-		box-shadow: 0px 0px 10px #BDC2C5
+		width: 400px
+		box-shadow: 0px 0px 5px #BDC2C5
 	.file:hover .file-panel
-		top: 200px
+		top: 255px
 	.file-body
 		background: #EEF1EF
-		height: 200px
+		height: 250px
 	.file-type
 		border-radius: 3px 0px 0px 0px
 		background: #1CBBB0
 		display: inline-block
 		padding: 3px 5px 3px 5px
 		color: white
-		width: 55px
+		font-size: 14pt
+		width: 35px
 		margin-right: 5px
+	.file-text
+		font-size: 14pt
 	.file-panel
 		height: 30px
-		width: 300px
-		top: 230px
+		width: 400px
+		top: 285px
 		background: white
 		position: absolute
 		text-align: center

@@ -18,10 +18,8 @@
 
 <style lang="sass" scoped>
 	div
-		height: 200px
+		height: 250px
 		text-align: center
-		box-shadow: inset 0px 0px 5px #BCBFBF
 	img
 		height: 100%
-		box-shadow: inset 0px 0px 1px black
 </style>

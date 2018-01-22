@@ -16,7 +16,7 @@
 		padding: 10px
 		background: #424242
 		color: white
-		height: 200px
+		height: 250px
 		overflow: hidden
 		text-overflow: ellipsis
 </style>
