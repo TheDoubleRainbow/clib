@@ -18,7 +18,7 @@
 			<span class="panel-views"><i class="fas fa-eye"></i> {{data.social.views}}</span>
 			<span class="panel-comments"><i class="fas fa-comments"></i> {{data.social.comments}}</span>
 		</div>
-		<div class="file-footer">
+		<div @click="view" class="file-footer">
 			View
 		</div>
 	</div>
@@ -46,6 +46,9 @@
 		methods: {
 			typeColor: function (){
 				return this.data.type == "Image" ? "background: #1CBBB0" : this.data.type == "Text" ? "background: #424242" : this.data.type == "Video" ? "background: #F25E50" : "background: #FD883D"
+			},
+			view: function(){
+				this.$router.push(`/material/${this.data.id}`)
 			}
 		}
 	}
@@ -62,7 +65,7 @@
 	.file:hover .file-panel
 		top: 255px
 	.file-body
-		background: #EEF1EF
+		background: #DFE4E5
 		height: 250px
 	.file-type
 		border-radius: 3px 0px 0px 0px

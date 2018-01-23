@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Materials from '@/components/Materials'
+import Material from '@/components/MaterialView'
 import 'bulma/bulma.sass'
 
 Vue.use(Router)
@@ -21,6 +22,11 @@ export default new Router({
     	path: '/search/:query',
     	name: 'Search',
     	component: Materials
+    },
+    {
+    	path: '/material/:id',
+    	name: 'Material',
+    	component: Material
     }
   ]
 })
