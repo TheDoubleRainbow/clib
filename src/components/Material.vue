@@ -61,11 +61,12 @@
 		padding: 0
 		margin: 20px 20px 20px 20px
 		width: 400px
-		box-shadow: 0px 0px 5px #BDC2C5
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+		transition: all 0.3s cubic-bezier(.25,.8,.25,1)
 	.file:hover .file-panel
 		top: 255px
 	.file-body
-		background: #DFE4E5
+		background: #EEF1EF
 		height: 250px
 	.file-type
 		border-radius: 3px 0px 0px 0px
@@ -101,6 +102,7 @@
 		transition-duration: 0.3s
 		position: relative
 		z-index: 3
+		border-radius: 0px 0px 3px 3px
 	.file-footer:hover
 		color: #2F69B9
 </style>

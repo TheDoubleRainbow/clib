@@ -23,7 +23,8 @@
 				playImg: "static/play.png",
 				volumeMuted: false,
 				volumeImgs: ["static/vol-max.png", "static/vol-muted.png"],
-				volumeImg: "static/vol-max.png"
+				volumeImg: "static/vol-max.png",
+				upd: ''
 			}
 		},
 		methods: {
@@ -54,11 +55,16 @@
 				this.$refs.playhead.style.marginLeft = e.offsetX+"px"
 			},
 			timelineUpdate () {
-				this.$refs.playhead.style.marginLeft = this.$refs.audio.currentTime/this.$refs.audio.duration*380+"px";
+				if(this.$refs.playhead){
+					this.$refs.playhead.style.marginLeft = this.$refs.audio.currentTime/this.$refs.audio.duration*380+"px";
+				}
+				else{
+					clearInterval(this.upd)
+				}
 			}
 		},
 		mounted : function () {
-			setInterval(this.timelineUpdate, 1000)
+			this.upd = setInterval(this.timelineUpdate, 1000)
 		}
 	}
 </script>
