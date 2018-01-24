@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="wrap">
 		<img :src="content" />
 	</div>
 </template>
@@ -17,7 +17,7 @@
 </script>
 
 <style lang="sass" scoped>
-	div
+	.wrap
 		height: 250px
 		text-align: center
 	img

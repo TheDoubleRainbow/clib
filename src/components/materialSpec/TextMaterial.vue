@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="wrap">
 		{{content}}
 	</div>
 </template>
@@ -12,7 +12,7 @@
 </script>
 
 <style lang="sass" scoped>
-	div
+	.wrap
 		padding: 10px
 		background: #424242
 		color: white

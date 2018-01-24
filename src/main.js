@@ -22,7 +22,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
 	  	materials: [
-	  		{id: 0, type: "Image", name: "Hello world", content: "http://i0.kym-cdn.com/photos/images/newsfeed/001/329/402/beb.jpg", subType: "Meme", social: {comments: 1, likes: 69, views: 1488}},
+	  		{id: 0, type: "Image", keywords: "Picture, Knuckles, Uganda, De wey, queen", name: "Hello world", content: "http://i0.kym-cdn.com/photos/images/newsfeed/001/329/402/beb.jpg", subType: "Meme", social: {comments: 1, likes: 69, views: 1488}},
 			{id: 1, type: "Text", name: "A Poem", content: "Bla Bla Bla Bla Lorem Ipsum Dolor Bla Bla", subType: "Poem", social: {comments: 1, likes: 69, views: 1488}},
 			{id: 2, type: "Music", name: "Suicide is painless", content: "/static/2.mp3", subType: "Song", social: {comments: 1337, likes: 69, views: 1488}},
 			{id: 3, type: "Image", name: "A meme", content: "https://memegenerator.net/img/instances/500x/59738032/illegal-loli-hunting.jpg", subType: "Meme", secType: "Meme", social: {comments: 0, likes: 0, views: 0}},

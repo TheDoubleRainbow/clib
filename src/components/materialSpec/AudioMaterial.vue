@@ -73,6 +73,8 @@
 	.wrap
 		background: #FD883D
 		height: 250px
+		width: 400px
+		margin: 0 auto
 	.playButton
 		height: 90px
 		width: 90px
@@ -99,7 +101,7 @@
 	.timeline
 		background: white
 		width: 380px
-		margin-left: 10px
+		margin: 0 auto
 		height: 16px
 		border-radius: 16px
 		padding: 1px 0px 0px 2px
