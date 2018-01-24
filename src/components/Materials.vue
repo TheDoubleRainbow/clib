@@ -68,8 +68,8 @@
 					if(this.materialsRow[el].name.match(reg) || this.materialsRow[el].subType.match(reg) || this.materialsRow[el].type.match(reg)){
 						this.materials.push(this.materialsRow[el])
 					}
-					this.materialsRow = this.materials;
 				}
+				this.materialsRow = this.materials;
 				if(this.materials.length != 0){
 					this.message = this.materials.length > 1 ? `Done! We found ${this.materials.length} files for you!` : `Done! We found one file for you!`;
 					this.pagination()
