@@ -3,7 +3,7 @@
 		<div class="breadcrumb">{{message}}</div>
 		<div class="columns is-centered is-multiline">
 			<Material v-for="material in materials" :data="material" :key="material.id" />
-			<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+			<nav v-if="materialsRow.length>9" class="pagination is-centered" role="navigation" aria-label="pagination">
 			  <a class="pagination-previous">Previous</a>
 			  <a class="pagination-next">Next page</a>
 			  <ul class="pagination-list">
@@ -80,7 +80,6 @@
 			},
 			pagination: function () {
 				this.materials = [];
-				console.log('asdas')
 				for(let i = this.currentPage*this.elementsPerPage-9; i < this.currentPage*this.elementsPerPage; i++){
 					if(this.materialsRow[i]){
 						this.materials.push(this.materialsRow[i]);

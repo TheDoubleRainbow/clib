@@ -7,7 +7,7 @@
 <script>
 	export default {
 		name: "VideoMaterial",
-		props: ["content", "full"],
+		props: ["content", "full", "sliderView"],
 		data () {
 			return {
 				url: `https://youtube.com/embed/${this.content.split("/")[3]}`
@@ -18,6 +18,10 @@
 				this.$refs.video.style.width = "450px"
 				this.$refs.video.style.height = "250px"
 
+			}
+			if(this.sliderView){
+				this.$refs.video.style.width = "280px"
+				this.$refs.video.style.height = "160px"
 			}
 		}
 	}

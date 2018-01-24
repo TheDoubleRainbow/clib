@@ -1,16 +1,21 @@
 <template>
-	<div class="wrap">
+	<div ref="wrap" class="wrap">
 		<img :src="content" />
 	</div>
 </template>
 
 <script>
 	export default {
-		props: ["content"],
+		props: ["content", "sliderView"],
 		name: "ImageMaterial",
 		data () {
 			return {
 				
+			}
+		},
+		mounted: function(){
+			if(this.sliderView){
+				this.$refs.wrap.style.height = "160px"
 			}
 		}
 	}

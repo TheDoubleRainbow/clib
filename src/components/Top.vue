@@ -1,8 +1,8 @@
 <template>
 	<header>
 		<div class="columns is-centered">
-			<div class="column recent">
-				Recent files
+			<div class="column top">
+				Top materials
 			</div>
 		</div>
 		<Slider />
@@ -32,7 +32,7 @@
 		background: #424242
 		height: 350px
 		font-size: 12pt
-	.recent
+	.top
 		color: white
 		text-align: center
 		font-size: 20pt
