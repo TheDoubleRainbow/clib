@@ -5,8 +5,8 @@
 			<Material v-for="material in materials" :data="material" :key="material.id" />
 		</div>
 		<nav v-if="materialsRow.length>9" class="pagination is-centered" role="navigation" aria-label="pagination">
-			  <a @click="changePage('prev')" class="pagination-previous">Previous</a>
-			  <a @click="changePage('next')" class="pagination-next">Next page</a>
+			  <a v-if="currentPage!=1" @click="changePage('prev')" class="pagination-previous">Previous</a>
+			  <a v-if="currentPage!= pagesNum" @click="changePage('next')" class="pagination-next">Next page</a>
 			  <ul class="pagination-list">
 			    <li><a @click="setPage(page)" v-for="page in pages" :class="isActive(page)" aria-label="Goto page 1">{{page}}</a></li>
 			  </ul>
@@ -23,7 +23,7 @@
 				type: "",
 				subType: "",
 				message: "Welcome to content library",
-				currentPage: 2,
+				currentPage: 1,
 				elementsPerPage: 9,
 				pagesNum: 0,
 				pages: []
@@ -132,4 +132,13 @@
 		max-width: 700px
 		margin: auto
 		margin-bottom: 20px
+		color: #424242
+	.pagination-link
+		color: #424242
+	.is-current
+		color: white
+		background: #424242
+		border: none
+	.pagination-previous, .pagination-next
+		color: #424242
 </style>
