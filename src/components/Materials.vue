@@ -3,16 +3,14 @@
 		<div class="breadcrumb">{{message}}</div>
 		<div class="columns is-centered is-multiline">
 			<Material v-for="material in materials" :data="material" :key="material.id" />
-			<nav v-if="materialsRow.length>9" class="pagination is-centered" role="navigation" aria-label="pagination">
-			  <a class="pagination-previous">Previous</a>
-			  <a class="pagination-next">Next page</a>
-			  <ul class="pagination-list">
-			    <li><a class="pagination-link is-current" aria-label="Goto page 1">1</a></li>
-			    <li><a class="pagination-link" aria-label="Goto page 2">2</a></li>
-			    <li><a class="pagination-link" aria-label="Page 3" aria-current="page">3</a></li>
-			  </ul>
-			</nav>
 		</div>
+		<nav v-if="materialsRow.length>9" class="pagination is-centered" role="navigation" aria-label="pagination">
+			  <a @click="changePage('prev')" class="pagination-previous">Previous</a>
+			  <a @click="changePage('next')" class="pagination-next">Next page</a>
+			  <ul class="pagination-list">
+			    <li><a @click="setPage(page)" v-for="page in pages" :class="isActive(page)" aria-label="Goto page 1">{{page}}</a></li>
+			  </ul>
+		</nav>
 	</div>
 </template>
 
@@ -25,8 +23,10 @@
 				type: "",
 				subType: "",
 				message: "Welcome to content library",
-				currentPage: 1,
-				elementsPerPage: 9
+				currentPage: 2,
+				elementsPerPage: 9,
+				pagesNum: 0,
+				pages: []
 			}
 		},
 		methods: {
@@ -85,6 +85,24 @@
 						this.materials.push(this.materialsRow[i]);
 					}
 				}
+			},
+			getPaginationNumbers: function () {
+				this.pagination()
+				this.pagesNum = Math.ceil(this.materialsRow.length/this.elementsPerPage);
+				for(let i = 0; i < this.pagesNum; i++){
+					this.pages.push(i+1)
+				}
+			},
+			setPage: function(page){
+				this.currentPage = page;
+				this.pagination();
+			},
+			changePage: function(type){
+				type=="next" ? this.currentPage++ : this.currentPage--;
+				this.pagination();
+			},
+			isActive: function(page){
+				return this.currentPage == page ? "pagination-link is-current" : "pagination-link"
 			}
 		},
 		created: function () {
@@ -95,7 +113,7 @@
 				this.loadSearchQuery();
 			}
 			else{
-				this.pagination()
+				this.getPaginationNumbers();
 			}
 		}
 	}
@@ -110,4 +128,8 @@
 		display: block
 		font-size: 14pt
 		color: #979B99
+	.pagination
+		max-width: 700px
+		margin: auto
+		margin-bottom: 20px
 </style>
