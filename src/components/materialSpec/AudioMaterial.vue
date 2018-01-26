@@ -54,12 +54,12 @@
 				}
 			},
 			timelineChange (e) {
-				this.$refs.audio.currentTime = e.offsetX/380*this.$refs.audio.duration;
+				this.$refs.audio.currentTime = e.offsetX/this.$refs.timeline.clientWidth*this.$refs.audio.duration;
 				this.$refs.playhead.style.marginLeft = e.offsetX+"px"
 			},
 			timelineUpdate () {
 				if(this.$refs.playhead){
-					this.$refs.playhead.style.marginLeft = this.$refs.audio.currentTime/this.$refs.audio.duration*380+"px";
+					this.$refs.playhead.style.marginLeft = this.$refs.audio.currentTime/this.$refs.audio.duration*this.$refs.timeline.clientWidth+"px";
 				}
 				else{
 					clearInterval(this.upd)
@@ -127,5 +127,13 @@
 		width: 14px
 		background: #FD883D
 		border-radius: 100%
+	@media screen and (max-width: 1023px)
+		.wrap
+			width: 300px
+		.timeline
+			width: 260px
+		.play
+			top: 75px
+			left: 65px
 
 </style>

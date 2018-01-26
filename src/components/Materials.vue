@@ -65,7 +65,7 @@
 			loadSearchQuery: function () {
 				let reg = new RegExp(this.$route.params.query, "i");
 				for(let el in this.materialsRow){
-					if(this.materialsRow[el].name.match(reg) || this.materialsRow[el].subType.match(reg) || this.materialsRow[el].type.match(reg)){
+					if(this.materialsRow[el].name.match(reg) || this.materialsRow[el].subType.match(reg) || this.materialsRow[el].keywords.match(reg) || this.materialsRow[el].type.match(reg)){
 						this.materials.push(this.materialsRow[el])
 					}
 				}
@@ -141,4 +141,8 @@
 		border: none
 	.pagination-previous, .pagination-next
 		color: #424242
+	@media screen and (max-width: 1023px)
+		.materials
+			margin-top: 10px	
+
 </style>

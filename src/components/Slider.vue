@@ -1,5 +1,5 @@
 <template>
-	<div class="top-files columns is-centered">
+	<div class="top-files is-centered">
 		<div @click=view(material.id) v-for="material in materials" :key="material.id" class="top-file is-narrow column">
 			<div class="top-file-header">
 				<span v-if="material.type == 'Image'" :sliderView="true" :style="typeColor(material)" class="file-type"><i class="far fa-images"></i></span>
@@ -38,6 +38,7 @@
 				materials: [],
 				rowMaterials: [],
 				whileNum: 0,
+				perSlide: 2,
 				likes: []
 			}
 		},
@@ -45,13 +46,13 @@
 			loadMaterials: function () {
 				this.likes = [];
 				this.rowMaterials = this.$store.state.materials
-				this.whileNum = this.rowMaterials.length > 4 ? 4 : this.rowMaterials.length;
+				this.whileNum = this.rowMaterials.length > this.perSlide ? this.perSlide : this.rowMaterials.length;
 				for(let i = 0; i < this.rowMaterials.length; i++){
 					this.likes.push(this.rowMaterials[i].social.likes*1);
 				}
 				this.likes.sort(function(a, b) {return a - b;});
 				this.likes.reverse()
-				this.likes = this.likes.splice(0, 4)
+				this.likes = this.likes.splice(0, this.perSlide)
 				this.getTopMaterials()
 				
 			},
@@ -84,6 +85,9 @@
 </script>
 
 <style lang="sass" scoped>
+	.top-files
+		text-align: center
+		height: 194px
 	.top-file
 		background: #F5F9FC
 		border-radius: 3px
@@ -92,6 +96,7 @@
 		cursor: pointer
 		width: 280px;
 		border-radius: 3px
+		display: inline-block
 	.top-file-body
 		background: #E2E5E5
 		height: 160px
@@ -118,4 +123,6 @@
 		font-size: 14pt
 		width: 35px
 		margin-right: 5px
+	.top-file-header
+		text-align: left
 </style>

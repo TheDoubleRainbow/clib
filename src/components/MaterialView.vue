@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<div class="wrapper columns is-multiline is-centered">
+		<div class="wrapper">
 			<div class="breadcrumb">{{message}}</div>
 			<div class="column col is-9-desktop is-12-touch">
 				<div class="columns is-multiline">
@@ -98,6 +98,7 @@
 	.col
 		border-radius: 3px
 		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+		margin: 0 auto
 		margin-top: 15px
 	.data
 		font-size: 14pt
@@ -125,5 +126,8 @@
 		display: block
 		font-size: 14pt
 		color: #979B99
+	@media screen and (max-width: 1023px)
+		.wrapper
+			margin-top: 10px	
 
 </style>

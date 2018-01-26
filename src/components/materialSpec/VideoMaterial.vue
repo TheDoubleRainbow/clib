@@ -30,4 +30,7 @@
 <style lang="sass" scoped>
 	.wrapy
 		text-align: center
+	@media screen and (max-width: 1023px)
+		.wrap
+			width: 280px
 </style>

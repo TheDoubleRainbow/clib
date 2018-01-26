@@ -105,4 +105,15 @@
 		border-radius: 0px 0px 3px 3px
 	.file-footer:hover
 		color: #2F69B9
+	@media screen and (max-width: 1023px)
+		.file
+			width: 300px
+			margin: auto
+			margin: 20px 20px 20px 20px
+		.file-panel
+			width: 300px
+	@media screen and (max-width: 769px)
+		.file
+			margin: auto
+			margin-top: 20px
 </style>
