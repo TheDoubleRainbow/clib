@@ -40,7 +40,7 @@
 		},
 		data () {
 			return {
-				style: this.data.type == "Video" ? "top: 255px" : ""
+				style: this.data.type == "Video" ? "top: 255px" : "top: 255"
 			}
 		},
 		methods: {
@@ -49,6 +49,11 @@
 			},
 			view: function(){
 				this.$router.push(`/material/${this.data.id}`)
+			}
+		},
+		created: function () {
+			if(this.data.type == "Music"){
+				this.style = "top: 255px";
 			}
 		}
 	}

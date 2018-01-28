@@ -39,10 +39,20 @@
 				</div>
 			</div>
 			<div class="column col social is-9-desktop is-12-touch">
-				<div class="likeButton"><i class="far fa-thumbs-up"></i> <span class="likeText">Like</span></div>
+				<div @click="addLike" class="likeButton"><i class="far fa-thumbs-up"></i> <span class="likeText">Like</span></div>
+				<div class="fb-like" data-href="http://localhost:8080/" data-width="80" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
 			</div>
 			<div class="column col comments is-9-desktop is-12-touch">
-				 <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+				 <textarea class="textarea" placeholder="Write your comment" v-model="currentComment.text"></textarea>
+				 <button @click="addComment" class="button is-primary comment-button">Leave a comment</button>
+			</div>
+			<div v-for="comment in comments" class="column col comment is-9-desktop is-12-touch">
+				<div class="comment-header">
+					<img class="comment-avatar" alt="Avatar" :src="comment.avatar"><span class="comment-username">{{comment.name}}</span><span class="comment-date">{{comment.date}}</span>
+					</div>
+				<div class="comment-body">
+					{{comment.text}}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -63,7 +73,10 @@
 		data () {
 			return {
 				content: false,
-				message: ''
+				message: '',
+				currentComment: {name: "UserName", avatar: "static/Avatar.jpg", text: "", date: "29th January at 8:21AM"},
+				comments: [{name: "UserName", avatar: "static/Avatar.jpg", text: "This is how comments look like", date: "8th January at 8:21AM"}],
+				liked: false
 			}
 		},
 		methods: {
@@ -79,6 +92,14 @@
 				if(this.content == undefined){
 					this.message = "Error while loading material"
 					console.error("Error while loading material")
+				}
+			},
+			addLike: function() {
+				if(!this.liked) this.content.social.likes++; this.liked = true
+			},
+			addComment: function () {
+				if(this.currentComment.text!= "" || this.currentComment.text!= " "){
+					this.comments.push(this.currentComment)
 				}
 			}
 		},
@@ -114,6 +135,7 @@
 	.likeButton
 		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
 		transition: all 0.3s cubic-bezier(.25,.8,.25,1)
+		width: 80px
 		display: inline-block
 		padding: 5px 10px 5px 10px
 		border-radius: 3px
@@ -126,6 +148,28 @@
 		display: block
 		font-size: 14pt
 		color: #979B99
+	.fb-like
+		position: relative
+		top: 2px
+		margin-left: 10px
+	.comment-button
+		display: block
+		margin: 0 auto
+		margin-top: 10px
+	.comment-avatar
+		width: 32px
+		height: 32px
+		border-radius: 100%
+	.comment-body
+		padding: 10px 10px 10px 10px
+	.comment-username, .comment-date
+		position: relative
+		bottom: 8px
+		margin-left: 10px
+	.comment-username
+		font-size: 14pt
+	.comment-date
+		font-size: 10pt
 	@media screen and (max-width: 1023px)
 		.wrapper
 			margin-top: 10px	

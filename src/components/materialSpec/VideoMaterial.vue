@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapy">
-		<iframe ref="video" class="wrap" width="400" height="220" :src="url" allow="encrypted-media"></iframe>
+		<iframe ref="video" class="video" width="400" height="220" :src="url" allow="encrypted-media"></iframe>
 	</div>
 </template>
 
@@ -30,6 +30,8 @@
 <style lang="sass" scoped>
 	.wrapy
 		text-align: center
+	.video
+		border-radius: 0px 0px 3px 3px
 	@media screen and (max-width: 1023px)
 		.wrap
 			width: 280px

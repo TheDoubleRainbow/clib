@@ -18,7 +18,7 @@
 <script>
 	export default {
 		name: "AudioMaterial",
-		props: ["content", "sliderView"],
+		props: ["content", "sliderView", "full"],
 		data () {
 			return {
 				playState: false,
@@ -72,7 +72,7 @@
 				this.$refs.wrap.style.height = "160px";
 				this.$refs.wrap.style.width = "280px";
 				this.$refs.wrap.style.borderRadius = "0px 0px 3px 3px";
-				this.$refs.playB.style.marginRight = "160px"
+				this.$refs.playB.style.marginRight = "160px";
 			}
 		}
 	}
@@ -119,10 +119,8 @@
 		border-radius: 16px
 		padding: 1px 0px 0px 2px
 		position: relative
-		top: 120px
+		top: 100px
 		transition-duration: 0.3s
-	.wrap:hover .timeline
-		top: 90px
 	.playhead
 		height: 14px
 		width: 14px
