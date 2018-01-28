@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<div class="wrapper">
+		<div class="wrapper animated fadeIn">
 			<div class="breadcrumb">{{message}}</div>
 			<div class="column col is-9-desktop is-12-touch">
 				<div class="columns is-multiline">

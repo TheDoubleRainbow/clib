@@ -21,6 +21,8 @@
 		components: {
 			"Navbar": Nav,
 			"Slider": Slider
+		},
+		mounted: function(){
 		}
 	}
 </script>

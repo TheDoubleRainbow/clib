@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar" role="navigation" aria-label="main navigation">
+	<nav ref="navbar" class="navbar" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
 			<div class="search control has-icons-left is-hidden-desktop">
 			   <input @keyup.enter="search()" v-model="query" class="input" type="text" placeholder="Search">

@@ -1,5 +1,5 @@
 <template>
-	<div class="materials container">
+	<div ref="materials" class="materials container animated fadeIn">
 		<div class="breadcrumb">{{message}}</div>
 		<div class="columns is-centered is-multiline">
 			<Material v-for="material in materials" :data="material" :key="material.id" />

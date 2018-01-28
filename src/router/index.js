@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Materials from '@/components/Materials'
 import Material from '@/components/MaterialView'
 import 'bulma/bulma.sass'
+import '../css/animate.css'
 
 Vue.use(Router)
 

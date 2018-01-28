@@ -1,7 +1,7 @@
 <template>
 	<div class="top-files columns is-centered">
 		<div class="prevSlide" @click="changeSlide('prev')"><i class="arrow far fa-arrow-alt-circle-left"></i></div>
-		<div @click=view(material.id) v-for="material in materials" :key="material.id" class="top-file is-narrow column">
+		<div @click=view(material.id) v-for="material in materials" :key="material.id" class="top-file is-narrow column animated fadeIn">
 			<div class="top-file-header">
 				<span v-if="material.type == 'Image'" :sliderView="true" :style="typeColor(material)" class="file-type"><i class="far fa-images"></i></span>
 				<span v-if="material.type == 'Music'" :sliderView="true" :style="typeColor(material)" class="file-type"><i class="fas fa-music"></i></span>
