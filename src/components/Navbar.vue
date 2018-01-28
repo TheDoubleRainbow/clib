@@ -66,6 +66,7 @@
 			   </span>
 			</div>
 			<ul ref="burgerMenu" class="burger-menu is-hidden-desktop">
+				<div class="burger-header"><a href="/"><i class="fas fa-home"></i> <span class="type">Home</span></a></div>
 				<div @click="openBurgerEl($refs.Music)" ref="Music" class="burger-header"><i class="fas fa-music"></i> <span class="type">Music</span></div>
 				<ul class="burger-list">
 					<li @click="goto('Music', i)" v-for="i in $store.state.subTypes.audio" class="burger-el">{{i}}</li>
@@ -123,6 +124,7 @@
 	.burger-menu
 		display: none
 		text-align: center
+	.burger-menu:last-child
 	.burger-header
 		cursor: pointer
 		box-shadow: 0px 0px 3px #757678
@@ -138,4 +140,8 @@
 		.search
 			width: 100%
 			margin-left: 15px
+		a
+			color: #424242
+		.burger-menu
+			padding-bottom: 10px
 </style>
