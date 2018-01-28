@@ -4,13 +4,13 @@
 			<div class="vol-img-wrapper"><img @click="switchVol()" class="vol-img" :src="volumeImg"/></div>
 			
 		</div>
-		<div v-if="!sliderView"class="play" @click="play()"><img class="playButton" :src="playImg" /></div>
+		<div v-if="!sliderView" class="play" @click="play()"><img class="playButton" :src="playImg" /></div>
 		<div v-if="!sliderView"@click="timelineChange($event)" ref="timeline" class="timeline"><div ref="playhead" class="playhead"></div></div>
 		<audio v-if="!sliderView" volume="0.5" ref="audio" class="player">
 			<source :src="content" type="audio/mpeg">
 		</audio>
 		<div v-if="sliderView">
-			<div class="playSlider" ><img class="playButton" src="static/play.png" /></div>
+			<div ref="playB" class="playSlider" ><img class="playButton" src="static/play.png" /></div>
 		</div>
 	</div>
 </template>
@@ -71,7 +71,8 @@
 			if(this.sliderView){
 				this.$refs.wrap.style.height = "160px";
 				this.$refs.wrap.style.width = "280px";
-				this.$refs.wrap.style.borderRadius = "0px 0px 3px 3px"
+				this.$refs.wrap.style.borderRadius = "0px 0px 3px 3px";
+				this.$refs.playB.style.marginRight = "160px"
 			}
 		}
 	}

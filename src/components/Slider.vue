@@ -1,5 +1,6 @@
 <template>
-	<div class="top-files is-centered">
+	<div class="top-files columns is-centered">
+		<div class="prevSlide" @click="changeSlide('prev')"><i class="arrow far fa-arrow-alt-circle-left"></i></div>
 		<div @click=view(material.id) v-for="material in materials" :key="material.id" class="top-file is-narrow column">
 			<div class="top-file-header">
 				<span v-if="material.type == 'Image'" :sliderView="true" :style="typeColor(material)" class="file-type"><i class="far fa-images"></i></span>
@@ -18,6 +19,7 @@
 				View
 			</div>-->
 		</div>
+		<div class="nextSlide" @click="changeSlide('next')"><i class="arrow far fa-arrow-alt-circle-right"></i></div>
 	</div>
 </template>
 
@@ -38,9 +40,19 @@
 				materials: [],
 				rowMaterials: [],
 				whileNum: 0,
-				perSlide: 2,
+				perSlide: 4,
+				materialsNum: 8,
+				pages: 0,
+				page: 0,
 				likes: []
 			}
+		},
+		mounted: function () {
+			window.addEventListener('resize', this.calcEls)
+			this.calcEls();
+		},
+		beforeDestroy: function () {
+			window.removeEventListener('resize', this.calcEls)
 		},
 		methods: {
 			loadMaterials: function () {
@@ -52,7 +64,7 @@
 				}
 				this.likes.sort(function(a, b) {return a - b;});
 				this.likes.reverse()
-				this.likes = this.likes.splice(0, this.perSlide)
+				this.likes = this.likes.splice(this.page*this.perSlide, this.perSlide)
 				this.getTopMaterials()
 				
 			},
@@ -76,10 +88,29 @@
 			},
 			view: function(id){
 				this.$router.push(`/material/${id}`)
+			},
+			changeSlide: function(direction) {
+				if(direction == "next"){
+					if(this.page<this.pages-1){
+						this.materials = [];
+						this.page++;
+						this.loadMaterials()
+					}
+				}
+				else{
+					if(this.page != 0){
+						this.materials = [];
+						this.page--;
+						this.loadMaterials()
+					}
+				}
+			},
+			calcEls: function() {
+				this.perSlide = document.documentElement.clientWidth<1024 ? 2 : document.documentElement.clientWidth<1300 ? 3 : 4;
+				this.pages = this.materialsNum/this.perSlide;
+				this.materials = [];
+				this.loadMaterials();
 			}
-		},
-		mounted: function () {
-			this.loadMaterials()
 		}
 	}
 </script>
@@ -92,7 +123,7 @@
 		background: #F5F9FC
 		border-radius: 3px
 		padding: 0
-		margin-left: 30px
+		margin: 15px
 		cursor: pointer
 		width: 280px;
 		border-radius: 3px
@@ -125,4 +156,13 @@
 		margin-right: 5px
 	.top-file-header
 		text-align: left
+	.prevSlide, .nextSlide
+		display: inline-block
+		color: white
+		cursor: pointer
+		position: relative
+		top: 80px
+	.arrow
+		height: 32px
+		width: 32px
 </style>
