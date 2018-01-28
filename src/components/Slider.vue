@@ -161,7 +161,7 @@
 		color: white
 		cursor: pointer
 		position: relative
-		top: 80px
+		top: 90px
 	.arrow
 		height: 32px
 		width: 32px

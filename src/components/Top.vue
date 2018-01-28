@@ -1,9 +1,9 @@
 <template>
 	<header>
-		<div class="is-hidden-touch column top">
+		<div class="is-hidden-mobile column top">
 			Top materials
 		</div>
-		<Slider class="is-hidden-touch" />
+		<Slider class="is-hidden-mobile" />
 		<Navbar />
 	</header>
 </template>
@@ -39,6 +39,10 @@
 		box-shadow: 0px 0px 6px #979797
 	@media screen and (max-width: 1023px)
 		.navbar
+			margin-top: 40px
 			top: 0px
+	@media screen and (max-width: 768px)
+		.navbar
+			margin-top: 0px
 
 </style>
